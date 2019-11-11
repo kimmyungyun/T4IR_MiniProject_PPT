@@ -2,14 +2,16 @@ package com.ppt.service.user;
 
 import org.springframework.stereotype.Service;
 
+import com.ppt.dao.user.IUserManageRepository;
 import com.ppt.model.User;
 
 @Service
 public class UserManageService implements IUserManageService{
+	IUserManageRepository repository;
 	
 	@Override
 	public boolean signupUser(User user) {
-		
+		repository.signupUser(user);
 		return true;
 	}
 	
@@ -28,8 +30,9 @@ public class UserManageService implements IUserManageService{
 		return true;
 	}
 	
+
 	@Override
 	public boolean logoutUser(User user) {
-		return true;
-	}
-}
+		// TODO Auto-generated method stub
+		return false;
+	}}
