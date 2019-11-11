@@ -1,6 +1,5 @@
 package com.ppt.service.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ppt.dao.user.IUserManageRepository;
@@ -8,7 +7,6 @@ import com.ppt.model.User;
 
 @Service
 public class UserManageService implements IUserManageService{
-	@Autowired
 	IUserManageRepository repository;
 	
 	@Override
