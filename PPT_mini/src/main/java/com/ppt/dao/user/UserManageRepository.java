@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.coderby.myapp.hr.dao.EmpRepository.EmpMapper;
 import com.ppt.model.User;
 
 @Repository
