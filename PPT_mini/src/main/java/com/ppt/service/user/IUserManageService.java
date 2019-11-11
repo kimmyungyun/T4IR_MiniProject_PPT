@@ -1,8 +1,8 @@
-package com.ppt.user.dao;
+package com.ppt.service.user;
 
 import com.ppt.model.User;
 
-public interface IUserManageRepository {
+public interface IUserManageService {
 	boolean signupUser(User user);
 	boolean updateUser(User user);
 	boolean deleteUser(User user);

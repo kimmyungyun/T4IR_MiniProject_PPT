@@ -1,4 +1,4 @@
-package com.ppt.user.service;
+package com.ppt.service.user;
 
 import org.springframework.stereotype.Service;
 
