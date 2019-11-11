@@ -8,4 +8,36 @@ public class Auction {
 	private char type;
 	private int userId;
 	private int itemid;
+	public int getAuctionId() {
+		return auctionId;
+	}
+	public void setAuctionId(int auctionId) {
+		this.auctionId = auctionId;
+	}
+	public Date getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+	public char getType() {
+		return type;
+	}
+	public void setType(char type) {
+		this.type = type;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public int getItemid() {
+		return itemid;
+	}
+	public void setItemid(int itemid) {
+		this.itemid = itemid;
+	}
+	
+	
 }
