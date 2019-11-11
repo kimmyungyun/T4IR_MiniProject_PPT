@@ -1,0 +1,14 @@
+
+PPT_mini/target/classes/com/ppt/main/TestMain.class
+PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository$UsrMapper.class
+PPT_mini/target/classes/com/ppt/dao/bidding/IBiddingManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/bidding/BiddingManageRepository.class
+PPT_mini/target/classes/application-config.xml
+PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository.class
+PPT_mini/target/classes/com/ppt/service/bidding/BiddingManageService.class
+PPT_mini/target/classes/com/ppt/service/bidding/IBiddingManageService.class
+PPT_mini/target/classes/com/ppt/service/user/UserManageService.class
+PPT_mini/target/m2e-wtp/web-resources/META-INF/maven/com.ppt/main/pom.properties
+PPT_mini/target/m2e-wtp/web-resources/META-INF/maven/com.ppt/main/pom.xml
+PPT_mini/target/classes/database/jdbc.properties
