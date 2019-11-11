@@ -19,14 +19,14 @@ public class UserManageRepository implements IUserManageRepository {
 		@Override
 		public User mapRow(ResultSet rs, int count) throws SQLException {
 			User usr = new User();
-			usr.setUserId(rs.getInt("u_uid"));
-			usr.setId(rs.getString("u_id"));
-			usr.setPw(rs.getString("u_password"));
+			//usr.setUserId(rs.getInt("u_uid"));
+			//usr.setId(rs.getString("u_id"));
+			//usr.setPw(rs.getString("u_password"));
 			usr.setName(rs.getString("u_name"));
-			usr.setEmail(rs.getString("u_email"));
-			usr.setBirth(rs.getDate("u_birth"));
-			usr.setPhoneNum(rs.getInt("u_phone"));
-			usr.setAddress(rs.getString("u_adress"));
+			//usr.setEmail(rs.getString("u_email"));
+			//usr.setBirth(rs.getDate("u_birth"));
+			//usr.setPhoneNum(rs.getInt("u_phone"));
+			//usr.setAddress(rs.getString("u_adress"));
 			return usr;
 		}
 	}
@@ -39,7 +39,7 @@ public class UserManageRepository implements IUserManageRepository {
 		jdbcTemplate.update(sql, usr.getId(), usr.getPw(), usr.getName(), usr.getEmail(), usr.getPhoneNum(),
 				usr.getAddress());
 		return true;
-	}
+	} 	
 
 	@Override
 	public boolean updateUser(User user) {
@@ -57,8 +57,8 @@ public class UserManageRepository implements IUserManageRepository {
 	public boolean loginUser(User usr) {
 		// usr.getId()
 		// usr.getPw()
-		String sql = "select * from users";
-		jdbcTemplate.queryForObject(sql, new UsrMapper(), usr.getId(),usr.getPw());
+		String sql = "select u_name from users";
+		System.out.println(jdbcTemplate.query(sql, new UsrMapper()));
 		return true;
 	}
 
