@@ -46,42 +46,52 @@
     }
   </script>
   <script>
-    function c1() {
+    function S1() {
 
-      var Email = document.getElementById("Cemail");
-      var strEmail = Email.value;
-      var Name = document.getElementById("Cname");
-      var strName = Name.value;
-      var Birth = document.getElementById("Cbirth");
-      var strBirth = Birth.value;
-      var Tel = document.getElementById("Ctel");
-      var strTel = Name.value;
-      var Address = document.getElementById("Caddress");
-      var strAddress = Name.value;
+      var ID1 = document.getElementById("Sid");
+      var strID1 = ID1.value;
+      var Pw1 = document.getElementById("Spw");
+      var strPw1 = Pw1.value;
+      var Email1 = document.getElementById("S1email");
+      var strEmail1 = Email1.value;
+      var Name1 = document.getElementById("Sname");
+      var strName1 = Name1.value;
+      var Birth1 = document.getElementById("Sbirth");
+      var strBirth1 = Birth1.value;
+      var Tel1 = document.getElementById("Stel");
+      var strTel1 = Tel1.value;
+      var Address1 = document.getElementById("Saddress");
+      var strAddress1 = Address1.value;
 
-      if (strName.length < 2) {
-        alert(strName.length + '글자입니다. 이름을 2자 이상 입력해 주세여');
+      if (strID1.length < 2) {
+        alert(strID1.length + '글자입니다. 아이디를 2자 이상 입력해 주세여');
+        return;
+      } else if (strPw1.length < 8) {
+        alert(strPw1.length + '자입니다. 비밀번호는 8자 이상입니다.')
+        return;
+      } else if (strName1.length < 2) {
+        alert(strName1.length + '글자입니다. 이름을 2자 이상 입력해 주세여');
+        return;
+      } else if(strEmail1.length == 0) {
+        alert('이메일을 입력해주세요');
+        return;
+      } else if(strBirth1.length == 0) {
+        alert('생년월일을 입력해 주세요');
+        return;
+      } else if(strTel1.length < 10) {
+        alert('전화번호를 정확히 입력해 주세요');
+        return;
+      } else if(strAddress1.length == 0) {
+        alert('주소를 입력해 주세요');
         return;
       } else {
-        if (strEmail.length == 0) {
-          alert('이메일을 입력해주세요')
-          return;
-        } else {
-          if (strBirth.length == 0) {
-            alert('생년월일을 입력해 주세요')
-            return;
-          } else {
-            alert('저장되었습니다.')
-            document.location.href = 'index.html'
-            return;
-          }
-          return;
-        }
+        alert('저장되었습니다.')
+        document.location.href = 'index.html'
         return;
       }
+      return;
     }
   </script>
-
 </head>
 
 <body id="page-top">
@@ -125,7 +135,7 @@
           <a class="nav-link js-scroll-trigger" href="/Sell.html">팝니다</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#buy">삽니다</a>
+          <a class="nav-link js-scroll-trigger" href="/Buy.html">삽니다</a>
         </li>
         <li class="nav-item">
           <div class="nav-link js-scroll-trigger">
@@ -612,17 +622,17 @@
               <div class="panel-heading"> </div>
               <div class="panel-body">
                 아이디를 입력해주세요<br>
-                <input type="text" class="form-controlrm" placeholder="아이디 입력" id="Cid">
+                <input type="text" class="form-controlrm" placeholder="아이디 입력" id="Sid">
                 <button type="submit">중복확인</button><br><br>
                 비밀번호를 해주세요<br>
-                <input type="password" class="col-md-4" placeholder="비밀번호 입력" id="Cpw"><br><br>
+                <input type="password" class="col-md-4" placeholder="비밀번호 입력" id="Spw"><br><br>
                 이름을 입력해주세요<br>
-                <input type="text" class="col-md-4" placeholder="성함 입력" id="Cname"><br><br>
+                <input type="text" class="col-md-4" placeholder="성함 입력" id="Sname"><br><br>
                 생년월일을 입력해주세요<br>
-                <input type="date" class="col-md-4" id="Cbirth"><br><br>
+                <input type="date" class="col-md-4" id="Sbirth"><br><br>
                 이메일을 입력해주세요<br>
-                <input type="text" class="col-md-4" placeholder="이메일 입력" id="Cemail">&nbsp;
-                <input type="text" list="mail" class="col-md-4" ID="Cemail">
+                <input type="text" class="col-md-4" placeholder="이메일 입력" id="S1email">&nbsp;
+                <input type="text" list="mail" class="col-md-4" ID="S2email">
                 <datalist id="mail">
                   <option selected value="메일입력"></option>
                   <option value="@naver.com"></option>
@@ -631,11 +641,11 @@
                   <option value="@nate.com"></option>
                 </datalist><br><br>
                 휴대폰번호를 입력하세요<br>
-                <input type="tel" class="col-md-4" placeholder="000-0000-0000" id="Ctel"><br><br>
+                <input type="tel" class="col-md-4" placeholder="000-0000-0000" id="Stel"><br><br>
                 주소를 입력하세요<br>
-                <input type="text" class="col-md-4" placeholder="xx시 xx구" id="Caddress"><br><br>
+                <input type="text" class="col-md-4" placeholder="xx시 xx구" id="Saddress"><br><br>
 
-                <button onclick="c1()" class="btn btn-lg btn-success btn-block" name="input">저장하기</button></a><br>
+                <button onclick="S1()" class="btn btn-lg btn-success btn-block" name="input">저장하기</button></a><br>
               </div>
             </div>
           </div>
@@ -878,7 +888,6 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
-
 </body>
 
 </html>
