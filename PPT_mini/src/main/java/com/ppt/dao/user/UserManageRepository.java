@@ -35,8 +35,13 @@ public class UserManageRepository implements IUserManageRepository {
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO users " + "(u_id, u_password, u_name, u_email, u_birth, u_phone, u_address) "
 				+ "VALUES (?, ?, ?, ?, sysdate, ?, ?)";
+		try {
 		jdbcTemplate.update(sql, usr.getId(), usr.getPw(), usr.getName(), usr.getEmail(), usr.getPhoneNum(),
 				usr.getAddress());
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
 		return true;
 	}
 

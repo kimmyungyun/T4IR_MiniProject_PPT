@@ -1,56 +1,57 @@
 package com.ppt.service.auction;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.ppt.dao.auction.IAuctionManageRepository;
+import com.ppt.model.Auction;
 
 @Service
 public class AuctionManageService implements IAuctionManageService{
-
+	@Autowired
+	IAuctionManageRepository iAuctionmanagerepository;
 	@Override
-	public boolean registerAuction() {
+	public boolean registerAuction(Auction auction) {
 		// TODO Auto-generated method stub
-		return false;
+		return iAuctionmanagerepository.registerAuction(auction);
 	}
 
 	@Override
-	public boolean deleteAuction() {
+	public boolean deleteAuction(int auctionNum) {
 		// TODO Auto-generated method stub
-		return false;
+		return iAuctionmanagerepository.deleteAuction(auctionNum);
 	}
 
 	@Override
-	public boolean modifyAuction() {
+	public List<Auction> searchAuctionbyitemName(String name) {
 		// TODO Auto-generated method stub
-		return false;
+		return iAuctionmanagerepository.searchAuctionbyitemName(name);
 	}
 
 	@Override
-	public boolean searchAuction(String name) {
+	public List<Auction> searchAuctionbyitemCategory(String category) {
 		// TODO Auto-generated method stub
-		return false;
+		return iAuctionmanagerepository.searchAuctionbyitemCategory(category);
 	}
 
 	@Override
-	public boolean serachAuction(String category) {
+	public void sortNewAuction(){
 		// TODO Auto-generated method stub
-		return false;
+		iAuctionmanagerepository.sortNewAuction();
 	}
 
 	@Override
-	public void sortAuction() {
+	public void announcementHotdeal() {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void announcementHoteal() {
-		// TODO Auto-generated method stub
-		
+		iAuctionmanagerepository.announcementHotdeal();
 	}
 
 	@Override
 	public void announcementEndtime() {
 		// TODO Auto-generated method stub
-		
+		iAuctionmanagerepository.announcementEndtime();
 	}
 
 	@Override

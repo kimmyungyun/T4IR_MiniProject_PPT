@@ -1,7 +1,7 @@
 package com.ppt.model;
 
-import java.util.Date;
-
+import java.sql.Date;
+//import java.util.Date;
 public class Auction {
 	private int auctionId;
 	private Date endTime;
@@ -17,8 +17,8 @@ public class Auction {
 	public Date getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+	public void setEndTime(java.util.Date endTime) {
+		this.endTime = new Date(endTime.getTime());
 	}
 	public char getType() {
 		return type;

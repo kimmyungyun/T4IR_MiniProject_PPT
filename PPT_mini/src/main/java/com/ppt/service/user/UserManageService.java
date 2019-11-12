@@ -18,11 +18,6 @@ public class UserManageService implements IUserManageService{
 	}
 	
 	@Override
-	public boolean updateUser(User user) {
-		return true;
-	}
-	
-	@Override
 	public boolean deleteUser(User user) {
 		return true;
 	}
@@ -34,9 +29,4 @@ public class UserManageService implements IUserManageService{
 		return true;
 	}
 	
-
-	@Override
-	public boolean logoutUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
-	}}
+}
