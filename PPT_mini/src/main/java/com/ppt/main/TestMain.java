@@ -39,8 +39,8 @@ public class TestMain {
 		IItemManageService aa = context.getBean("itemManageService", IItemManageService.class);
 		IAuctionManageService bb = context.getBean("auctionManageService", IAuctionManageService.class);
 		Items it = new Items();
-		it.setCategory("ï¿½Ì¾ï¿½ï¿½ï¿½");
-		it.setName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2");
+		it.setCategory("ÇÚµåÆù");
+		it.setName("¾ÆÀÌÆù2");
 		it.setUid(123);
 
 		aa.registerItem(it);

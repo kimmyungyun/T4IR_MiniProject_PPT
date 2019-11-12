@@ -24,3 +24,7 @@ PPT_mini/target/classes/com/ppt/service/auction/AuctionManageService.class
 PPT_mini/target/classes/com/ppt/service/auction/IAuctionManageService.class
 PPT_mini/target/classes/com/ppt/service/item/ItemManageService.class
 PPT_mini/target/classes/com/ppt/service/user/UserManageService.class
+PPT_mini/target/classes/com/ppt/dao/item/ItemManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/item/ItemManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/item/ItemManageRepository.class
+PPT_mini/.settings/org.eclipse.core.resources.prefs
