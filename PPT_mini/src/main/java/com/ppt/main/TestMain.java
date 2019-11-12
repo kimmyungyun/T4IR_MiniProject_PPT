@@ -17,7 +17,7 @@ import com.ppt.service.user.IUserManageService;
 import com.ppt.service.user.UserManageService;
 
 public class TestMain {
-
+	// static ScheduledExecutorService executor;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stubAbstractApplicationContext context =
 		
@@ -39,8 +39,8 @@ public class TestMain {
 		IItemManageService aa = context.getBean("itemManageService", IItemManageService.class);
 		IAuctionManageService bb = context.getBean("auctionManageService", IAuctionManageService.class);
 		Items it = new Items();
-		it.setCategory("ÀÌ¾îÆù");
-		it.setName("¾ÆÀÌÆÌ2");
+		it.setCategory("ï¿½Ì¾ï¿½ï¿½ï¿½");
+		it.setName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2");
 		it.setUid(123);
 
 		aa.registerItem(it);

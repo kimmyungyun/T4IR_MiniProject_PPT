@@ -59,9 +59,10 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String toString() {
-		return this.name;
-		
+	
+	public void printInfo()
+	{
+		System.out.println("| %6d ¿Ã∏ß |");
 	}
 	
 }
