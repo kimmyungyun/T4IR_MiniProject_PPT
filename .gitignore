@@ -11,3 +11,5 @@ PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository.class
 PPT_mini/src/main/resources/application-config.xml
 *.xml
 PPT_mini/src/main/resources/application-config.xml
+
+*.class
