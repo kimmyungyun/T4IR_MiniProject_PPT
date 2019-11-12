@@ -7,36 +7,25 @@ import com.ppt.dao.user.IUserManageRepository;
 import com.ppt.model.User;
 
 @Service
-public class UserManageService implements IUserManageService{
+public class UserManageService implements IUserManageService {
 	@Autowired
 	IUserManageRepository repository;
-	
+
 	@Override
 	public boolean signupUser(User user) {
 		repository.signupUser(user);
 		return true;
 	}
-	
-	@Override
-	public boolean updateUser(User user) {
-		return true;
-	}
-	
+
 	@Override
 	public boolean deleteUser(User user) {
 		return true;
 	}
-	
-	@Override
-	public boolean loginUser(User user) {
-		System.out.println("service_loginUser_execute");
-		repository.loginUser(user);
-		return true;
-	}
-	
 
 	@Override
-	public boolean logoutUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
-	}}
+	public User loginUser(String id, String pw) {
+		System.out.println("service_loginUser_execute");
+		return repository.loginUser(id, pw);
+	}
+
+}
