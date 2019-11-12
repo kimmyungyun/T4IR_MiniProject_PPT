@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
+<% 
+    request.setCharacterEncoding("UTF-8");
+%>
+<html>
 
 <head>
 
@@ -14,12 +21,12 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+  <link href="<c:url value="/vendor/fontawesome-free/css/all.min.css"/>" rel="stylesheet" type="text/css">
+  <link href="<c:url value="https://fonts.googleapis.com/css?family=Montserrat:400,700"/>" rel="stylesheet" type="text/css">
+  <link href="<c:url value="https://fonts.googleapis.com/css?family=Kaushan+Script"/>" rel='stylesheet' type='text/css'>
+  <link href="<c:url value="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"/>" rel='stylesheet'
     type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"/>" rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
@@ -95,11 +102,16 @@
   <script type="text/javascript">
     function changeTrColor(trObj, oldColor, newColor) {
       trObj.style.backgroundColor = newColor;
-      trObj.onmouseout = function () {
+      trObj.onmouseout = function(){
         trObj.style.backgroundColor = oldColor;
       }
     }
   </script>
+  <script>
+      function call(){write.Q1}
+
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -131,7 +143,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">소개</a>
+            <a class="nav-link js-scroll-trigger" href="/index.html#services">소개</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/index.html#deadline">마감임박상품</a>
@@ -143,7 +155,7 @@
             <a class="nav-link js-scroll-trigger" href="/Sell.html">팝니다</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/Buy.html">삽니다</a>
+            <a class="nav-link js-scroll-trigger" href="#buy">삽니다</a>
           </li>
           <li class="nav-item">
             <div class="nav-link js-scroll-trigger">
@@ -166,12 +178,12 @@
   </header>
 
   <!-- Contact -->
-  <section class="page-section" id="sell">
+  <section class="page-section" id="buy">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">팔아요</h2>
-          <h3 class="section-subheading text-muted">다양한 상품들을 만나보세요</h3>
+          <h2 class="section-heading text-uppercase">구매해요</h2>
+          <h3 class="section-subheading text-muted">다양한 상품들을 구매해 보세요</h3>
         </div>
       </div>
       <div class="row">
@@ -188,31 +200,32 @@
                 </tr>
               </thead>
               <tbody>
-                <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
-                  style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="#Pd1">
-                  <th>01</th>
-                  <th id="Q1">아메리카노팔아요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                  <th>2</th>
+                <tr id="firstRow"
+                onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
+                style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="#Pd1">
+                    <th>01</th>
+                    <th id="Q1">아메리카노팔아요</th>
+                    <th>바나프레소</th>
+                    <th>2019.11.12</th>
+                    <th>2</th>
                 </tr>
                 <tr>
-                  <th>02</th>
-                  <th>아메리카노팔아요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                  <th>2</th>
+                    <th>02</th>
+                    <th>아메리카노팔아요</th>
+                    <th>바나프레소</th>
+                    <th>2019.11.12</th>
+                    <th>2</th>
                 </tr>
                 <tr>
-                  <th>03</th>
-                  <th>아메리카노팔아요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                  <th>2</th>
+                    <th>03</th>
+                    <th>아메리카노팔아요</th>
+                    <th>바나프레소</th>
+                    <th>2019.11.12</th>
+                    <th>2</th>
                 </tr>
               </tbody>
             </table>
-            <hr />
+            <hr/>
             <a class="btn btn-default" data-toggle="modal" href="#W1">글쓰기</a>
 
             <div class="text-align" style="text-align: center;">
@@ -224,7 +237,7 @@
                 <li><a href="p1">5</a></li>
               </ul>
             </div>
-
+           
           </form>
         </div>
       </div>
@@ -272,42 +285,7 @@
   </footer>
   <!-- 게시물들 -->
   <div class="portfolio-modal modal fade" id="Pd1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">아메리카노</h2>
-                <p class="item-intro text-muted"> 3000원 </p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                <p>엄청나게 맛있는 아메리카노 3000원에 팔아요</p>
-                <ul class="list-inline">
-                  <li>등록일: January 2017</li>
-                  <li>등록자: 바나프레소</li>
-                  <li>Category: food</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 게시물 등록-->
-  <form action="">
-    <div class="portfolio-modal modal fade" id="W1" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
             <div class="lr">
@@ -319,36 +297,18 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">상품 등록</h2>
-                  <div class="form-group">
-                    <input class="form-control" id="title" type="text" placeholder="제목" required="required"
-                      data-validation-required-message="Please enter your Title.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="ID" type="text" placeholder="작성자" required="required"
-                      data-validation-required-message="Please enter your ID.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="price" type="text" placeholder="가격" required="required"
-                      data-validation-required-message="Please enter your Price.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="inputfile" type="file" placeholder="이미지등록" required="required"
-                      data-validation-required-message="Please enter your title.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                      <div class="form-group">
-                          <textarea class="form-control" id="textbox" placeholder="내용" cols="30" rows="10" required data-validation-required-message="Please enter your main."></textarea>
-                          <p class="help-block text-danger"></p>
-                      </div>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <button class="btn btn-primary" type="submit">
-                    <i class="fa fa-cog fa-spin"></i> 등록합니다 <i class="fa fa-cog fa-spin"></i></button>
+                  <h2 class="text-uppercase">아메리카노</h2>
+                  <p class="item-intro text-muted"> 3000원 </p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
+                  <p>엄청나게 맛있는 아메리카노 3000원에 팔아요</p>
+                  <ul class="list-inline">
+                    <li>등록일: January 2017</li>
+                    <li>등록자: 바나프레소</li>
+                    <li>Category: food</li>
+                  </ul>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Close Project</button>
                 </div>
               </div>
             </div>
@@ -356,7 +316,57 @@
         </div>
       </div>
     </div>
-  </form>
+
+    <!-- 게시물 등록-->
+    <form action="">
+    <div class="portfolio-modal modal fade" id="W1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+              <div class="lr">
+                <div class="rl"></div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <div class="modal-body">
+                    <!-- Project Details Go Here -->
+                    <h2 class="text-uppercase">게시글 등록</h2>
+                    <div class="form-group">
+                        <input class="form-control" id="title" type="text" placeholder="제목" required="required"
+                          data-validation-required-message="Please enter your Title.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="ID" type="text" placeholder="작성자" required="required"
+                          data-validation-required-message="Please enter your ID.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="price" type="text" placeholder="가격" required="required"
+                          data-validation-required-message="Please enter your Price.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="inputfile" type="file" placeholder="이미지등록" required="required"
+                          data-validation-required-message="Please enter your title.">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="textbox" placeholder="내용" cols="30" rows="10" required data-validation-required-message="Please enter your main."></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-cog fa-spin"></i> 등록합니다 <i class="fa fa-cog fa-spin"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
 
   <!-- 로그인 -->
   <div class="modal" id="popuplogin" tabindex="1" role="dialog" aria-hidden="true">
