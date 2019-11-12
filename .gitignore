@@ -1,0 +1,13 @@
+
+PPT_mini/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+PPT_mini/target/classes/database/jdbc.properties
+PPT_mini/target/classes/com/ppt/service/user/UserManageService.class
+PPT_mini/target/classes/com/ppt/main/TestMain.class
+PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository$UsrMapper.class
+PPT_mini/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+PPT_mini/target/classes/com/ppt/service/user/UserManageService.class
+PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository.class
+PPT_mini/src/main/resources/application-config.xml
+*.xml
+PPT_mini/src/main/resources/application-config.xml

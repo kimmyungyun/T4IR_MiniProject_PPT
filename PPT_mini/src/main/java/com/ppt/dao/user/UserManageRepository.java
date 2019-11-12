@@ -30,7 +30,6 @@ public class UserManageRepository implements IUserManageRepository {
 			return usr;
 		}
 	}
-
 	@Override
 	public boolean signupUser(User usr) {
 		// TODO Auto-generated method stub
@@ -39,17 +38,12 @@ public class UserManageRepository implements IUserManageRepository {
 		jdbcTemplate.update(sql, usr.getId(), usr.getPw(), usr.getName(), usr.getEmail(), usr.getPhoneNum(),
 				usr.getAddress());
 		return true;
-	} 	
-
-	@Override
-	public boolean updateUser(User user) {
-		// TODO Auto-generated method stub
-		return true;
 	}
 
 	@Override
 	public boolean deleteUser(User usr) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM users WHERE u_id=? AND u_password=?";
+		jdbcTemplate.update(sql,usr.getId(),usr.getPw());
 		return true;
 	}
 
@@ -57,14 +51,9 @@ public class UserManageRepository implements IUserManageRepository {
 	public boolean loginUser(User usr) {
 		// usr.getId()
 		// usr.getPw()
+		System.out.println("repository_loginUser_execute");
 		String sql = "select u_name from users";
-		System.out.println(jdbcTemplate.query(sql, new UsrMapper()));
-		return true;
-	}
-
-	@Override
-	public boolean logoutUser(User user) {
-		// TODO Auto-generated method stub
+		System.out.println(jdbcTemplate.query(sql, new UsrMapper()).get(0).toString());
 		return true;
 	}
 }
