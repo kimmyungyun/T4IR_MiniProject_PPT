@@ -29,6 +29,7 @@ public class UserManageService implements IUserManageService{
 	
 	@Override
 	public boolean loginUser(User user) {
+		System.out.println("service_loginUser_execute");
 		repository.loginUser(user);
 		return true;
 	}
