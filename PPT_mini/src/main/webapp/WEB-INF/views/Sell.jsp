@@ -29,7 +29,21 @@
   <link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"/>" rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-  <link href="css/agency.min.css" rel="stylesheet">
+  <link href="<c:url value="css/agency.min.css"/>" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="<c:url value="vendor/jquery/jquery.min.js"/>"></script>
+    <script src="<c:url value="vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+  
+    <!-- Plugin JavaScript -->
+    <script src="<c:url value="vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+  
+    <!-- Contact form JavaScript -->
+    <script src="<c:url value="js/jqBootstrapValidation.js"/>"></script>
+    <script src="<c:url value="js/contact_me.js"/>"></script>
+  
+    <!-- Custom scripts for this template -->
+    <script src="<c:url value="js/agency.min.js"/>"></script>
 
   <script type="text/javascript">
     function changeTrColor(trObj, oldColor, newColor) {
@@ -47,7 +61,18 @@
       $('#popupsignin').modal('hide');
     };
   </script>
+  <script>
+      $(document).ready(function(){
+    $('#writeBtn').click(function(){
+      //$(location).attr("href", "Swritepost");
+      $('#writeIfr').attr('src','Swritepost');
+    });
 
+    $('TunaBtn').click(function(){
+      $(location).attr("href", "home");
+    })
+  });
+  </script>
 </head>
 
 <body id="page-top">
@@ -55,7 +80,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="padding: 10px; margin: 0px;">
 
-    <a class="navbar-brand js-scroll-trigger" href="/index.html">Tuna Auction</a>
+    <a class="navbar-brand js-scroll-trigger" id="TunaBtn">Tuna Auction</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="popup">
       <div class="row">
@@ -127,49 +152,31 @@
           <form id="contactForm" name="sentMessage" novalidate="novalidate">
             <table class="table table-striped table-hover">
               <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>마감기한</th>
-
-                </tr>
+                  <tr>
+                      <th>번호</th>
+                      <th>제품명</th>
+                      <th>작성자</th>
+                      <th>마감기한</th>
+                      <th>제품 종류</th>
+                    </tr>
               </thead>
               <tbody>
-                <c:forEach var="auction" items="${Auctions}" varStatus="status">
-                  <p>
-                    <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
-                    style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="/sell/${auction.auctionId}">
-                    <th>${status.count}</th>
-                    <th id="${auction.auctionId}">${auction.userId}</th>
-                    <th>바나프레소</th>
-                    <th>${auction.endTime}</th>
-                  </tr>
-                </p>
-                </c:forEach>
-                <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
-                  style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="#Pd1">
-                  <th>01</th>
-                  <th id="Q1">아메리카노팔아요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                </tr>
-                <tr>
-                  <th>02</th>
-                  <th>아메리카노팔아요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                </tr>
-                <tr>
-                  <th>03</th>
-                  <th>아메리카노팔아요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                </tr>
+                  <c:forEach var="auction" items="${Auctions}" varStatus="status">
+                      <p>
+                        <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
+                        style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="/sell/${auction.auctionId}">
+                        <th>${status.count}</th>
+                        <th>${auction.itemName}</th>
+                        <th>${auction.userName}</th>
+                        <th>${auction.endTime}</th>
+                        <th>${auction.category}</th>
+                      </tr>
+                    </p>
+                    </c:forEach>
               </tbody>
             </table>
             <hr />
-            <a class="btn btn-default" data-toggle="modal" href="#W1">글쓰기</a>
+            <a class="btn btn-default" data-toggle="modal" id="writeBtn" href="#W1">글쓰기</a>
 
             <div class="text-align" style="text-align: center;">
               <ul class="pagination">
@@ -265,7 +272,7 @@
             <div class="col-lg-8 mx-auto">
               <div class="modal-body" style="height: 650px;">
                 <!-- Project Details Go Here -->
-                <iframe src="/Swritepost.html" id="ifr3" style="width: 100%; height: 100%; border: 0px;">ifr3</iframe>
+                <iframe id="writeIfr" style="width: 100%; height: 100%; border: 0px;">ifr3</iframe>
               </div>
             </div>
           </div>
@@ -304,25 +311,11 @@
               aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body" style="height: 600px;">
-          <iframe src="/SignIn.html" id="ifr2" style="width: 100%; height: 550px;border: 0px;">ifr2</iframe>
+          <iframe id="signupFrame"  style="width: 100%; height: 550px;border: 0px;"></iframe>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Contact form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/agency.min.js"></script>
 
 </body>
 
