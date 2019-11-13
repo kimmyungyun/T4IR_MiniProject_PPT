@@ -76,11 +76,9 @@
 			return;
 		} else {
 			alert('저장되었습니다.')
-			document.location.href = 'index.html' //controller 도메인 위치로 주면 될듯함
-			window.parent.closeModal();
+			document.location.href = ''; //controller 도메인 위치로 주면 될듯함
 			return;
 		}
-
 	}
 </script>
 
@@ -120,7 +118,7 @@
 
 						<button type="submit" onclick="checkRegister()"
 							class="btn btn-lg btn-success btn-block" name="input">저장하기</button>
-						</a><br>
+						<br>
 					</div>
 				</div>
 			</div>

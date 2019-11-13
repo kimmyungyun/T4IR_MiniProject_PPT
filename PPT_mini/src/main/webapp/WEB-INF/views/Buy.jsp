@@ -30,6 +30,20 @@
 
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
+  
+    <!-- Bootstrap core JavaScript -->
+    <script src="<c:url value="vendor/jquery/jquery.min.js"/>"></script>
+    <script src="<c:url value="vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+  
+    <!-- Plugin JavaScript -->
+    <script src="<c:url value="vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+  
+    <!-- Contact form JavaScript -->
+    <script src="<c:url value="js/jqBootstrapValidation.js"/>"></script>
+    <script src="<c:url value="js/contact_me.js"/>"></script>
+  
+    <!-- Custom scripts for this template -->
+    <script src="<c:url value="js/agency.min.js"/>"></script>
 
   <script type="text/javascript">
     function changeTrColor(trObj, oldColor, newColor) {
@@ -50,10 +64,24 @@
   <script>
       $(document).ready(function(){
     $('#writeBtn').click(function(){
-      
       $('#writeIfr').attr('src','Bwritepost');
     });
-
+    $('#firstRow').click(function(){
+        $('#readIfr').attr('src','Breadpost');
+      });
+    
+  });
+  </script>
+  <script>
+      $(document).ready(function(){
+    //회원가입 추가
+    $('#popsign').click(function(){
+        $('#signupFrame').attr('src','signup');
+      });
+	//로그인 추가
+    $('#poplog').click(function(){
+    $('#loginFrame').attr('src','login');
+  });
     $('TunaBtn').click(function(){
       $(location).attr("href", "home");
     })
@@ -65,12 +93,13 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="padding: 10px; margin: 0px;">
-
-    <a class="navbar-brand js-scroll-trigger" id="TunaBtn">Tuna Auction</a>
+	<!-- 링크변경  시작-->
+    <a class="navbar-brand js-scroll-trigger" href="">Tuna Auction</a>
+    <!-- 링크변경  끝-->
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="popup">
       <div class="row">
-        <a href="#popuplogin" data-toggle="modal">로그인</a>
+        <a href="#popuplogin" data-toggle="modal" id="poplog">로그인</a><!-- 아이디 추가 -->
       </div>
     </div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -89,24 +118,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ml-auto">
+      <!-- 링크변경  시작-->
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/index.html#services">소개</a>
+          <a class="nav-link js-scroll-trigger" href="/main/#services">소개</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/index.html#deadline">마감임박상품</a>
+          <a class="nav-link js-scroll-trigger" href="/main/#deadline">마감임박상품</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/index.html#popular">인기상품</a>
+          <a class="nav-link js-scroll-trigger" href="/main/#popular">인기상품</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/Sell.html#sell">팝니다</a>
+          <a class="nav-link js-scroll-trigger" href="sell">팝니다</a>
         </li>
+        <!-- 링크변경  끝-->
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#buy">삽니다</a>
         </li>
         <li class="nav-item">
           <div class="nav-link js-scroll-trigger">
-            <a href="#popupsignin" data-toggle="modal">회원가입</a>
+            <a href="#popupsignin" data-toggle="modal" id="popsign" >회원가입</a><!-- 아이디 추가 -->
           </div>
         </li>
       </ul>
@@ -119,7 +150,7 @@
       <div class="intro-text">
         <div class="intro-lead-in" style="font-family: Kaushan Script;">Welcome Tuna Auction!</div>
         <div class="intro-heading text-uppercase">여러분께 합리적인 <br>거래를 안겨드립니다.</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#buy">Tell Me More</a>
       </div>
     </div>
   </header>
@@ -163,7 +194,7 @@
               </tbody>
             </table>
             <hr />
-            <a id="writeBtn" class="btn btn-default" data-toggle="modal" href="#W2">글쓰기</a>
+            <a class="btn btn-default" data-toggle="modal" id="writeBtn" href="#W2">글쓰기</a>
 
             <div class="text-align" style="text-align: center;">
               <ul class="pagination">
@@ -236,7 +267,7 @@
             <div class="col-lg-8 mx-auto">
               <div class="modal-body" style="height: 700px;">
                 <!-- Project Details Go Here -->
-                <iframe src="/Breadpost.html" id="ifr4" style="width: 100%; height: 100%; border: 0px;">ifr4</iframe>
+                <iframe id="readIfr" style="width: 100%; height: 100%; border: 0px;">ifr4</iframe>
               </div>
             </div>
           </div>
@@ -268,7 +299,7 @@
     </div>
   </div>
 
-  <!-- 로그인 -->
+  <!-- 로그인 변경 아이프레임에 나오게-->
   <div class="modal" id="popuplogin" tabindex="1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content" style="background:#fed136;">
@@ -277,19 +308,14 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span></button>
         </div>
-        <div class="modal-body">
-          <div class="row" style="width: 100%;">
-            <div class="panel panel-default">
-              <div class="panel-heading"> </div>
-              <iframe src="/LogIn.html" id="ifr1" style="width: 165%; height: 350px;border: 0px;">ifr1</iframe>
+        <div class="modal-body" style="width: 100%;">
+              <iframe id="loginFrame" style="width: 100%; height: 350px;border: 0px;">ifr1</iframe>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
   <!-- 회원가입 -->
-  <div class="modal" id="popupsignin" tabindex="1" role="dialog" aria-hidden="true">
+<div class="modal" id="popupsignin" tabindex="1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content" style="background:#fed136;">
         <div class="modal-header">
@@ -298,7 +324,7 @@
               aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body" style="height: 600px;">
-          <iframe id="signupFrame" style="width: 100%; height: 550px;border: 0px;">ifr2</iframe>
+          <iframe id="signupFrame"  style="width: 100%; height: 550px;border: 0px;"></iframe>
         </div>
       </div>
     </div>
