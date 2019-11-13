@@ -121,13 +121,12 @@ public class AuctionManageRepository implements IAuctionManageRepository {
 	}
 
 	@Override
-	public List<Auction> sortNewAuction() {
-		
+	public List<Auction> sortNewAuction(char type) {
 		List<Auction> resultAuction = new ArrayList<Auction>();
 		// 내림차순 정렬을 활용한 출력
 		java.sql.Date today = new java.sql.Date(new Date().getTime());
 		System.out.println(today);
-		String sql="SELECT * FROM AUCTION WHERE A_ENDTIME >= '"+today+"' ORDER BY A_ENDTIME DESC";
+		String sql="SELECT * FROM AUCTION WHERE A_ENDTIME >= '"+today+"' AND A_TYPE="+type+" ORDER BY A_ENDTIME DESC";
 
 		List<Auction> findAuctions = jdbcTemplate.query(sql, new AuctionMapper());
 		

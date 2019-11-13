@@ -72,16 +72,16 @@
       } else if (strName1.length < 2) {
         alert(strName1.length + '글자입니다. 이름을 2자 이상 입력해 주세여');
         return;
-      } else if(strEmail1.length == 0) {
+      } else if (strEmail1.length == 0) {
         alert('이메일을 입력해주세요');
         return;
-      } else if(strBirth1.length == 0) {
+      } else if (strBirth1.length == 0) {
         alert('생년월일을 입력해 주세요');
         return;
-      } else if(strTel1.length < 10) {
+      } else if (strTel1.length < 10) {
         alert('전화번호를 정확히 입력해 주세요');
         return;
-      } else if(strAddress1.length == 0) {
+      } else if (strAddress1.length == 0) {
         alert('주소를 입력해 주세요');
         return;
       } else {

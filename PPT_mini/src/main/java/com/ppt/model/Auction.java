@@ -8,6 +8,35 @@ public class Auction {
 	private char type;
 	private int userId;
 	private int itemid;
+	private String title;
+	private String memo;
+	private String userName;
+	private int viewCount;
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getMemo() {
+		return memo;
+	}
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public int getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
 	public int getAuctionId() {
 		return auctionId;
 	}

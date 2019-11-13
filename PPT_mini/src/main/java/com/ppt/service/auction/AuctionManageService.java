@@ -37,9 +37,9 @@ public class AuctionManageService implements IAuctionManageService{
 	}
 
 	@Override
-	public void sortNewAuction(){
+	public List<Auction> sortNewAuction(char type){
 		// TODO Auto-generated method stub
-		iAuctionmanagerepository.sortNewAuction();
+		return iAuctionmanagerepository.sortNewAuction(type);
 	}
 
 	@Override
