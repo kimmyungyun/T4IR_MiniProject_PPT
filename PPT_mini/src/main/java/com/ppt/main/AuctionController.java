@@ -27,14 +27,18 @@ public class AuctionController {
 
 //	private static final Logger logger = LoggerFactory.getLogger(AuctionController.class);
 	@Autowired
-	IAuctionManageService AuctionManageService;
+	IAuctionManageService auctionManageService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/buy", method = RequestMethod.GET)
 	public String buy(Locale locale, Model model) {
-		
-		List<Auction> auctions = null;//AuctionManageService.sortNewAuction('B');
+		System.out.println("buy html");
+		List<Auction> auctions = auctionManageService.sortNewAuction('B');
+		System.out.println(auctions);
+		for(Auction auct: auctions) {
+			System.out.println(auct.getAuctionId());
+		}
 		model.addAttribute("Auctions", auctions);
 		return "Buy";
 	}
@@ -50,8 +54,8 @@ public class AuctionController {
 	
 	@RequestMapping(value = "/sell", method = RequestMethod.GET)
 	public String sell(Locale locale, Model model) {
-		
-		List<Auction> auctions = null;//AuctionManageService.sortNewAuction('S');
+		System.out.println("/sell");
+		List<Auction> auctions = auctionManageService.sortNewAuction('S');
 		model.addAttribute("Auctions", auctions);
 		return "Sell";
 	}

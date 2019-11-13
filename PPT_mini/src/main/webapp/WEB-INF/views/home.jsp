@@ -91,10 +91,14 @@
 
   $(document).ready(function(){
     $('#registerBtn').click(function(){
-      alert("Btn 클릭");
+      
       $('#signupFrame').attr('src','signup');
     });
 
+    $('TunaBtn').click(function(){
+      alert("Btn 클릭");
+      $(location).attr("href", "home");
+    })
   });
 window.closeModal = function(){
     $('#popupsignin').modal('hide');
@@ -107,7 +111,7 @@ window.closeModal = function(){
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="padding: 10px; margin: 0px;">
 
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">Tuna Auction</a>
+    <a class="navbar-brand js-scroll-trigger" id="TunaBtn" href="#page-top">Tuna Auction</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="popup">
       <div class="row">

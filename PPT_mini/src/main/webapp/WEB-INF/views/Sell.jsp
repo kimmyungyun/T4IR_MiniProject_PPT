@@ -131,32 +131,40 @@
                   <th>번호</th>
                   <th>제목</th>
                   <th>작성자</th>
-                  <th>날짜</th>
-                  <th>조회수</th>
+                  <th>마감기한</th>
+
                 </tr>
               </thead>
               <tbody>
+                <c:forEach var="auction" items="${Auctions}" varStatus="status">
+                  <p>
+                    <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
+                    style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="/sell/${auction.auctionId}">
+                    <th>${status.count}</th>
+                    <th id="${auction.auctionId}">${auction.userId}</th>
+                    <th>바나프레소</th>
+                    <th>${auction.endTime}</th>
+                  </tr>
+                </p>
+                </c:forEach>
                 <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
                   style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="#Pd1">
                   <th>01</th>
                   <th id="Q1">아메리카노팔아요</th>
                   <th>바나프레소</th>
                   <th>2019.11.12</th>
-                  <th>2</th>
                 </tr>
                 <tr>
                   <th>02</th>
                   <th>아메리카노팔아요</th>
                   <th>바나프레소</th>
                   <th>2019.11.12</th>
-                  <th>2</th>
                 </tr>
                 <tr>
                   <th>03</th>
                   <th>아메리카노팔아요</th>
                   <th>바나프레소</th>
                   <th>2019.11.12</th>
-                  <th>2</th>
                 </tr>
               </tbody>
             </table>
