@@ -43,15 +43,6 @@ public class AuctionController {
 		return "Buy";
 	}
 	
-	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String signup(Locale locale, Model model) {
-		System.out.println("/signup");
-		List<Auction> auctions = null;//AuctionManageService.sortNewAuction('B');
-		model.addAttribute("Auctions", auctions);
-		return "signup";
-	}
-	
-	
 	@RequestMapping(value = "/sell", method = RequestMethod.GET)
 	public String sell(Locale locale, Model model) {
 		System.out.println("/sell");
