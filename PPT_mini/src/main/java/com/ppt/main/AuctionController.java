@@ -61,19 +61,19 @@ public class AuctionController {
 	}
 
 	
-	@RequestMapping(value = "/registerSell", method = RequestMethod.POST)
+	@RequestMapping(value = "/Swritepost", method = RequestMethod.GET)
 	public String registerSell(Locale locale, Model model) {
-		
-		List<Auction> auctions = null; //AuctionManageService.sortNewAuction('S');
-		model.addAttribute("Auctions", auctions);
-		return "registerSell";
+		System.out.println("/Swritepost");
+		//List<Auction> auctions = null; //AuctionManageService.sortNewAuction('S');
+		//model.addAttribute("Auctions", auctions);
+		return "Swritepost";
 	}
 	
-	@RequestMapping(value = "/registerBuy", method = RequestMethod.POST)
+	@RequestMapping(value = "/Bwritepost", method = RequestMethod.GET)
 	public String registerBuy(Locale locale, Model model) {
-		
-		List<Auction> auctions = null;//AuctionManageService.sortNewAuction('B');
-		model.addAttribute("Auctions", auctions);
-		return "registerBuy";
+		System.out.println("/Bwritepost");
+		//List<Auction> auctions = null;//AuctionManageService.sortNewAuction('B');
+		//model.addAttribute("Auctions", auctions);
+		return "Bwritepost";
 	}
 }

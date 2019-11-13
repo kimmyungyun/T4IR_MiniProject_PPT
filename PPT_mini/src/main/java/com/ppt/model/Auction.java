@@ -12,7 +12,21 @@ public class Auction {
 	private String memo;
 	private String userName;
 	private int viewCount;
+	private String category;
+	private String itemName;
 	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
 	public String getTitle() {
 		return title;
 	}

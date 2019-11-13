@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.ppt.dao.item.ItemManageRepository.ItemMapper;
 import com.ppt.model.Auction;
 import com.ppt.model.Items;
+import com.ppt.model.User;
 
 @Repository
 public class AuctionManageRepository implements IAuctionManageRepository {
@@ -27,10 +28,7 @@ public class AuctionManageRepository implements IAuctionManageRepository {
 		public Items mapRow(ResultSet rs, int count) throws SQLException {
 			Items item = new Items();
 			item.setCategory(rs.getString("I_CATEGORY"));
-			item.setItemId(rs.getInt("I_ID"));
 			item.setName(rs.getString("I_NAME"));
-			item.setUid(rs.getInt("U_UID"));
-
 			return item;
 		}
 	}
@@ -50,6 +48,15 @@ public class AuctionManageRepository implements IAuctionManageRepository {
 		}
 	}
 
+	private class UsrMapper implements RowMapper<User> {
+		@Override
+		public User mapRow(ResultSet rs, int count) throws SQLException {
+			User usr = new User();
+			usr.setName(rs.getString("u_name"));
+			return usr;
+		}
+	}
+	
 	@Override
 	public boolean registerAuction(Auction auction) {
 		// TODO Auto-generated method stub
@@ -132,12 +139,23 @@ public class AuctionManageRepository implements IAuctionManageRepository {
 		System.out.println(today);
 		String sql = "SELECT * FROM AUCTION WHERE A_ENDTIME >= '" + today + "' AND A_TYPE='" + type
 				+ "' ORDER BY A_ENDTIME DESC";
-
+		
+		
 		try {
 			List<Auction> findAuctions = jdbcTemplate.query(sql, new AuctionMapper());
-
+			
+			
 			for (Auction auct : findAuctions) {
+				String sqlUser = "SELECT U_NAME FROM USERS WHERE U_UID="+auct.getUserId();
+				String sqlItem = "SELECT I_CATEGORY, I_NAME FROM ITEMS WHERE I_ID="+auct.getItemid();
+				
+				List<User> findUsers = jdbcTemplate.query(sqlUser, new UsrMapper());
+				List<Items> findItems = jdbcTemplate.query(sqlItem, new ItemMapper());
+				auct.setUserName(findUsers.get(0).getName());
+				auct.setItemName(findItems.get(0).getName());
+				auct.setCategory(findItems.get(0).getCategory());
 				resultAuction.add(auct);
+				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

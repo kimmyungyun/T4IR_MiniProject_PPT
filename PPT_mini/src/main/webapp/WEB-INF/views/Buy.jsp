@@ -47,7 +47,18 @@
       $('#popupsignin').modal('hide');
     };
   </script>
+  <script>
+      $(document).ready(function(){
+    $('#writeBtn').click(function(){
+      
+      $('#writeIfr').attr('src','Bwritepost');
+    });
 
+    $('TunaBtn').click(function(){
+      $(location).attr("href", "home");
+    })
+  });
+  </script>
 </head>
 
 <body id="page-top">
@@ -55,7 +66,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="padding: 10px; margin: 0px;">
 
-    <a class="navbar-brand js-scroll-trigger" href="/index.html">Tuna Auction</a>
+    <a class="navbar-brand js-scroll-trigger" id="TunaBtn">Tuna Auction</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="popup">
       <div class="row">
@@ -129,39 +140,30 @@
               <thead>
                 <tr>
                   <th>번호</th>
-                  <th>제목</th>
+                  <th>제품명</th>
                   <th>작성자</th>
-                  <th>날짜</th>
-                  <th>조회수</th>
+                  <th>마감기한</th>
+                  <th>제품 종류</th>
                 </tr>
               </thead>
               <tbody>
-                <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
-                  style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="#Pd2">
-                  <th>01</th>
-                  <th id="Q1">아메리카노사요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                  <th>2</th>
-                </tr>
-                <tr>
-                  <th>02</th>
-                  <th>아메리카노사요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                  <th>2</th>
-                </tr>
-                <tr>
-                  <th>03</th>
-                  <th>아메리카노사요</th>
-                  <th>바나프레소</th>
-                  <th>2019.11.12</th>
-                  <th>2</th>
-                </tr>
+                <c:forEach var="auction" items="${Auctions}" varStatus="status">
+                    <p>
+                      <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
+                      style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="/sell/${auction.auctionId}">
+                      <th>${status.count}</th>
+                      <th>${auction.itemName}</th>
+                      <th>${auction.userName}</th>
+                      <th>${auction.endTime}</th>
+                      <th>${auction.category}</th>
+                      
+                    </tr>
+                  </p>
+                  </c:forEach>
               </tbody>
             </table>
             <hr />
-            <a class="btn btn-default" data-toggle="modal" href="#W2">글쓰기</a>
+            <a id="writeBtn" class="btn btn-default" data-toggle="modal" href="#W2">글쓰기</a>
 
             <div class="text-align" style="text-align: center;">
               <ul class="pagination">
@@ -257,7 +259,7 @@
             <div class="col-lg-8 mx-auto">
               <div class="modal-body" style="height: 650px;">
                 <!-- Project Details Go Here -->
-                <iframe src="/Bwritepost.html" id="ifr3" style="width: 100%; height: 100%; border: 0px;">ifr3</iframe>
+                <iframe id="writeIfr" style="width: 100%; height: 100%; border: 0px;">ifr3</iframe>
               </div>
             </div>
           </div>
@@ -296,7 +298,7 @@
               aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body" style="height: 600px;">
-          <iframe src="/SignIn.html" id="ifr2" style="width: 100%; height: 550px;border: 0px;">ifr2</iframe>
+          <iframe id="signupFrame" style="width: 100%; height: 550px;border: 0px;">ifr2</iframe>
         </div>
       </div>
     </div>
