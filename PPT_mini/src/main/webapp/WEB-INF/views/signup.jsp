@@ -16,6 +16,20 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Contact form JavaScript -->
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/agency.min.js"></script>
+
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -39,8 +53,14 @@
 <link href="css/agency.min.css" rel="stylesheet">
 
 <script>
+	
 	function checkRegister() {
+		var pom = document.registerForm;
 
+		var ID = document.getElementById("Cid");
+		var strID = ID.value;
+		var PASS = document.getElementById("Cpw");
+		var strpass = PASS.value;
 		var Email = document.getElementById("Cemail");
 		var strEmail = Email.value;
 		var Name = document.getElementById("Cname");
@@ -48,35 +68,38 @@
 		var Birth = document.getElementById("Cbirth");
 		var strBirth = Birth.value;
 		var Tel = document.getElementById("Ctel");
-		var strTel = Name.value;
+		var strTel = Tel.value;
 		var Address = document.getElementById("Caddress");
-		var strAddress = Name.value;
+		var strAddress = Address.value;
 		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 
-		if (strID1.length < 2) {
-			alert(strID1.length + '글자입니다. 아이디를 2자 이상 입력해 주세여');
+		if (strID.length < 2) {
+			alert(strID.length + '글자입니다. 아이디를 2자 이상 입력해 주세여');
 			return;
-		} else if (strPw1.length < 8) {
-			alert(strPw1.length + '자입니다. 비밀번호는 8자 이상입니다.')
+		} else if (strpass.length < 8) {
+			alert(strpass.length + '자입니다. 비밀번호는 8자 이상입니다.')
 			return;
-		} else if (strName1.length < 2) {
-			alert(strName1.length + '글자입니다. 이름을 2자 이상 입력해 주세여');
+		} else if (strName.length < 2) {
+			alert(strName.length + '글자입니다. 이름을 2자 이상 입력해 주세여');
 			return;
 		} else if (exptext.test(strEmail) == false) {
 			alert('이메일 형식이 올바르지 않습니다.');
 			return;
-		} else if (strBirth1.length == 0) {
+		} else if (strBirth.length == 0) {
 			alert('생년월일을 입력해 주세요');
 			return;
-		} else if (strTel1.length < 10) {
-			alert('전화번호를 정확히 입력해 주세요');
-			return;
-		} else if (strAddress1.length == 0) {
+		}
+		// } else if ( {
+		// 	alert('전화번호를 정확히 입력해 주세요');
+		// 	return;
+		// } 
+		else if (strAddress.length == 0) {
 			alert('주소를 입력해 주세요');
 			return;
 		} else {
-			alert('저장되었습니다.')
-			document.location.href = ''; //controller 도메인 위치로 주면 될듯함
+			alert('저장되었습니다.');
+			pom.action('signup.jsp');
+			pom.submit();
 			return;
 		}
 	}
@@ -85,7 +108,7 @@
 </head>
 
 <body>
-	<form method="post">
+	<form name="registerForm" method="post">
 		<div class="modal-body">
 			<div class="row" style="width: 100%;">
 				<div class="panel panel-default">
@@ -101,22 +124,15 @@
 						생년월일을 입력해주세요<br> <input type="date" class="col-md-4"
 							id="Cbirth" name="Cbirth"><br> <br> 이메일을 입력해주세요<br>
 						<input type="text" class="col-md-4" placeholder="이메일 입력"
-							id="Cemail">&nbsp; <input type="text" list="mail"
-							class="col-md-4" ID="Cemail" name="Cemail">
-						<datalist id="mail">
-							<option selected value="메일입력"></option>
-							<option value="@naver.com"></option>
-							<option value="@hanmail.net"></option>
-							<option value="@gmail.com"></option>
-							<option value="@nate.com"></option>
-						</datalist>
+							id="Cemail" name="Cemail">&nbsp; 
+						
 						<br> <br> 휴대폰번호를 입력하세요<br> <input type="tel"
 							class="col-md-4" placeholder="000-0000-0000" id="Ctel"
 							name="Ctel"><br> <br> 주소를 입력하세요<br> <input
 							type="text" class="col-md-4" placeholder="xx시 xx구" id="Caddress"
 							name="Caddress"><br> <br>
 
-						<button type="submit" onclick="checkRegister()"
+						<button id="btn" type="button" onclick="checkRegister()"
 							class="btn btn-lg btn-success btn-block" name="input">저장하기</button>
 						<br>
 					</div>

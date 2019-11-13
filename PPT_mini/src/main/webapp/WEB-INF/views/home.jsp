@@ -17,6 +17,20 @@
 
   <title>Agency - Start Bootstrap Theme</title>
 
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -37,11 +51,12 @@
     function c2() {
 
       var UID = document.getElementById("Cid");
+      var pom = document.loginForm;
       var strUID = UID.value;
       var Pw = document.getElementById("Cpw");
       var strPw = Pw.value;
 
-      
+
       if (strUID.length < 2) {
         alert(strUID.length + '글자입니다. 아이디를 2자 이상 입력해 주세여');
         return;
@@ -79,7 +94,8 @@
       } else if (strBirth.length == 0) {
         alert('생년월일을 입력해 주세요');
       } else {
-        alert('저장되었습니다.');exptext.test(email) == false
+        alert('저장되었습니다.');
+        exptext.test(email) == false
       }
 
 
@@ -95,10 +111,25 @@
   </script>
 <script>
 
-  $(document).ready(function(){
-    $('#registerBtn').click(function(){
-      
-      $('#signupFrame').attr('src','signup');
+        $('#signupFrame').attr('src', 'signup');
+      });
+
+      $('TunaBtn').click(function () {
+        alert("Btn 클릭");
+        $(location).attr("href", "home");
+      });
+
+      $('sellBtn').click(function () {
+        alert("sellBtn 클릭");
+        $(location).attr("href", "sell");
+      });
+
+      $('buyBtn').click(function () {
+        alert("buyBtn 클릭");
+        $(location).attr("href", "buy");
+      });
+
+
     });
 <!--
     $('sellBtn').click(function(){
@@ -122,7 +153,7 @@ window.closeModal = function(){
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="popup">
       <div class="row">
-        <a href="#popuplogin" data-toggle="modal">로그인</a>
+        <a id="loginBtn" href="#popuplogin" data-toggle="modal">로그인</a>
       </div>
     </div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -617,12 +648,10 @@ window.closeModal = function(){
             <div class="panel panel-default">
               <div class="panel-heading"> </div>
               <div class="panel-body">
-                아이디를 입력해주세요<br>
-                <input type="text" class="form-control" placeholder="아이디 입력" id="Cid"><br>
-                비밀번호를 해주세요<br>
-                <input type="password" class="form-control" placeholder="비밀번호 입력" id="Cpw"><br><br>
 
-                <button onclick="c2()" class="btn btn-lg btn-success btn-block" name="input">저장하기</button><br>
+
+                <iframe id='loginFrame' width="100%" height="100%"></iframe>
+
               </div>
             </div>
           </div>
@@ -866,19 +895,6 @@ window.closeModal = function(){
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Contact form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/agency.min.js"></script>
 
 </body>
 

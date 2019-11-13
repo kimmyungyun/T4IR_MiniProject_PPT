@@ -37,29 +37,30 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <script>
-        function c2() {
-
-            var UID = document.getElementById("Cid");
-            var strUID = UID.value;
-            var Pw = document.getElementById("Cpw");
-            var strPw = Pw.value;
-
-            if (strUID.length < 2) {
+            function c2() {
+        
+              var UID = document.getElementById("Cid");
+              var pom = document.loginForm;
+              var strUID = UID.value;
+              var Pw = document.getElementById("Cpw");
+              var strPw = Pw.value;
+        
+              if (strUID.length < 2) {
                 alert(strUID.length + '글자입니다. 아이디를 2자 이상 입력해 주세여');
                 return;
-            } else if (strPw.length < 8) {
+              } else if (strPw.length < 8) {
                 alert(strPw.length + '자입니다. 비밀번호는 8자 이상입니다.')
                 return;
-            } else {
-                alert('저장되었습니다.')
-                                document.location.href = '/main'
-                window.parent.closeModal();
                 document.location.href = '/main'
+                window.parent.closeModal();
+                                document.location.href = '/main'
+                alert('로그인되었습니다.');
                 return;
+              }
+              return;
             }
-            return;
-        }
     </script>
+
 </head>
 
 <body>

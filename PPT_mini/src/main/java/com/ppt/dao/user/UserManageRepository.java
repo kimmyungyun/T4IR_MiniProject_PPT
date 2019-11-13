@@ -3,6 +3,8 @@ package com.ppt.dao.user;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -14,7 +16,6 @@ import com.ppt.model.User;
 public class UserManageRepository implements IUserManageRepository {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-
 	private class UsrMapper implements RowMapper<User> {
 		@Override
 		public User mapRow(ResultSet rs, int count) throws SQLException {

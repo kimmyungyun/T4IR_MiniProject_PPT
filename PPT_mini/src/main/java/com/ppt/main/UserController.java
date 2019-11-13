@@ -23,24 +23,21 @@ public class UserController {
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String sign() {
-		System.out.println("회원가입창 진입");
-
+		System.out.println("회원가입 폼 진입");
 		return "signup";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
-		System.out.println("로그인창 진입");
-
+		System.out.println("/login GET");
 		return "login";
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signPost(@RequestParam("Cid") String id, @RequestParam("Cpw") String pw,
 			@RequestParam("Cname") String name, @RequestParam("Cbirth") Date birth,
-			@RequestParam("Cemail") String email, @RequestParam("Ctel") int phone,
+			@RequestParam("Cemail") String email, @RequestParam("Ctel") String phone,
 			@RequestParam("Caddress") String address) {
-		System.out.println("회원가입 전송 컨트롤러 진입");
 		AbstractApplicationContext context = new GenericXmlApplicationContext("application-config.xml");
 		IUserManageService ums = context.getBean("userManageService", IUserManageService.class);
 
@@ -50,7 +47,7 @@ public class UserController {
 		u1.setName(name);
 		u1.setBirth(birth);
 		u1.setEmail(email);
-		u1.setPhoneNum(phone);
+		u1.setPhoneNum(Integer.parseInt(phone));
 		u1.setAddress(address);
 		System.out.println(u1.getName());
 
@@ -58,25 +55,24 @@ public class UserController {
 			System.out.println("");
 			ums.signupUser(u1);
 		} catch (Exception e) {
-			System.out.println("전송오류 : " + e);
+			System.out.println("�쟾�넚�삤瑜� : " + e);
 		}
-
+		System.out.println("회원가입 폼 완료");
 		return "/";
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost(@RequestParam("Cid") String id, @RequestParam("Cpw") String pw) {
-		System.out.println("로그인 전송 컨트롤러 진입");
+		System.out.println("/login POST");
 		AbstractApplicationContext context = new GenericXmlApplicationContext("application-config.xml");
 		IUserManageService ums = context.getBean("userManageService", IUserManageService.class);
 		User u1 = null;
 		try {
-			System.out.println("");
 			u1 = ums.loginUser(id, pw);
+			HomeController.commonUser = u1;
 		} catch (Exception e) {
-			System.out.println("전송오류 : " + e);
+			System.out.println(e);
 		}
-		System.out.println(u1.getName()+"님 반갑습니다!");
-		
+		System.out.println(HomeController.commonUser.getName()+"님이 로그인하셧씁니다.");
 		return "/";
 	}
 }
