@@ -72,76 +72,36 @@
     }
   </script>
   <script>
-    function checkRegister() {
-
-      var Email = document.getElementById("Cemail");
-      var strEmail = Email.value;
-      var Name = document.getElementById("Cname");
-      var strName = Name.value;
-      var Birth = document.getElementById("Cbirth");
-      var strBirth = Birth.value;
-      var Tel = document.getElementById("Ctel");
-      var strTel = Name.value;
-      var Address = document.getElementById("Caddress");
-      var strAddress = Name.value;
-      var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-
-
-      if (strName.length < 2) {
-        alert(strName.length + '글자입니다. 이름을 2자 이상 입력해 주세여');
-      } else if (exptext.test(strEmail) == false) {
-        alert("이 메일형식이 올바르지 않습니다.");
-      } else if (strBirth.length == 0) {
-        alert('생년월일을 입력해 주세요');
-      } else {
-        alert('저장되었습니다.');
-        exptext.test(email) == false
-      }
-
-
-    }
-  </script>
-  <script>
       $(document).ready(function(){
     //회원가입 추가
     	    $('#popsign').click(function(){
-    	        $('#signupFrame').attr('src','signup');
-    	      });
-  });
-  </script>
-<script>
-
-        $('#signupFrame').attr('src', 'signup');
+            $('#signupFrame').attr('src', 'signup');
       });
 
-      $('TunaBtn').click(function () {
+      $('#TunaBtn').click(function () {
         alert("Btn 클릭");
         $(location).attr("href", "home");
       });
 
-      $('sellBtn').click(function () {
+      $('#sellBtn').click(function () {
         alert("sellBtn 클릭");
         $(location).attr("href", "sell");
       });
 
-      $('buyBtn').click(function () {
+      $('#buyBtn').click(function () {
         alert("buyBtn 클릭");
         $(location).attr("href", "buy");
       });
-
+      
+      	//로그인 추가
+    $('#loginBtn').click(function(){
+    $('#loginFrame').attr("src","login");
+  });
 
     });
-<!--
-    $('sellBtn').click(function(){
-      alert("Btn 클릭");
-      $(location).attr("href", "sell");
-    })
-    -->
-  });
-window.closeModal = function(){
-    $('#popupsignin').modal('hide');
-};
-</script>
+
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -636,30 +596,19 @@ window.closeModal = function(){
   </footer>
   <!-- 로그인 -->
   <div class="modal" id="popuplogin" tabindex="1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" style="background:#fed136;">
-        <div class="modal-header">
-          <h3 class="modal-title" style="text-align:center; font-family: Kaushan Script;">LogIn</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-              aria-hidden="true">&times;</span></button>
-        </div>
-        <div class="modal-body">
-          <div class="row" style="width: 100%;">
-            <div class="panel panel-default">
-              <div class="panel-heading"> </div>
-              <div class="panel-body">
-
-
-                <iframe id='loginFrame' width="100%" height="100%"></iframe>
-
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background:#fed136;">
+          <div class="modal-header">
+            <h3 class="modal-title" style="text-align:center; font-family: Kaushan Script;">LogIn</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body" style="width: 100%;">
+                <iframe id="loginFrame" style="width: 100%; height: 350px;border: 0px;">ifr1</iframe>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  </div>
   <!-- 회원가입 -->
 <div class="modal" id="popupsignin" tabindex="1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">

@@ -6,16 +6,20 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ppt.model.Auction;
+import com.ppt.model.User;
 import com.ppt.service.auction.IAuctionManageService;
 
 /**
@@ -44,8 +48,14 @@ public class AuctionController {
 	}
 	
 	@RequestMapping(value = "/sell", method = RequestMethod.GET)
-	public String sell(Locale locale, Model model) {
+	public String sell(Locale locale, Model model, HttpServletRequest request) {
 		System.out.println("/sell");
+		
+		if(request.getSession().getAttribute("user") != null) {
+			User user = (User) request.getSession().getAttribute("user");
+			System.out.println(user.getName());
+		}
+		
 		List<Auction> auctions = auctionManageService.sortNewAuction('S');
 		model.addAttribute("Auctions", auctions);
 		return "Sell";
@@ -53,16 +63,30 @@ public class AuctionController {
 
 	
 	@RequestMapping(value = "/Swritepost", method = RequestMethod.GET)
-	public String registerSell(Locale locale, Model model) {
+	public String registerSell(Locale locale, Model model, HttpServletRequest request) {
 		System.out.println("/Swritepost");
+		if(request.getSession().getAttribute("user") != null) {
+			User user = (User) request.getSession().getAttribute("user");
+			System.out.println(user.getName());
+			
+			model.addAttribute("writerName", user.getName());
+		}
+		
+		
 		//List<Auction> auctions = null; //AuctionManageService.sortNewAuction('S');
 		//model.addAttribute("Auctions", auctions);
 		return "Swritepost";
 	}
 	
 	@RequestMapping(value = "/Bwritepost", method = RequestMethod.GET)
-	public String registerBuy(Locale locale, Model model) {
+	public String registerBuy(Locale locale, Model model, HttpServletRequest request) {
 		System.out.println("/Bwritepost");
+		if(request.getSession().getAttribute("user") != null) {
+			User user = (User) request.getSession().getAttribute("user");
+			System.out.println(user.getName());
+			
+			model.addAttribute("writerName", user.getName());
+		}
 		//List<Auction> auctions = null;//AuctionManageService.sortNewAuction('B');
 		//model.addAttribute("Auctions", auctions);
 		return "Bwritepost";

@@ -277,7 +277,7 @@
   <div class="portfolio-modal modal fade" id="W1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
+        <div class="close-modal" data-dismiss="modal" id="close_modal">
           <div class="lr">
             <div class="rl"></div>
           </div>

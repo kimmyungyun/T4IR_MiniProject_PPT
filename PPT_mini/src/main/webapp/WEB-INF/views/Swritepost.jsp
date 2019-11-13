@@ -33,7 +33,7 @@
   <script>
     function wp() {
       alert('저장되었습니다.')
-      window.parent.closeModal();
+      $('#close_modal', parent.document).click();
       return;
     }
   </script>
@@ -66,7 +66,7 @@
     </div>
     <div class="form-group">
       <input class="form-control" id="ID" type="text" placeholder="작성자" required="required"
-        data-validation-required-message="Please enter your ID.">
+        data-validation-required-message="Please enter your ID." readonly value="${writerName}">
       <p class="help-block text-danger"></p>
     </div>
     <div class="form-group">

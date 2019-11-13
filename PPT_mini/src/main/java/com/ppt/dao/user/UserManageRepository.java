@@ -51,10 +51,17 @@ public class UserManageRepository implements IUserManageRepository {
 
 	@Override
 	public User loginUser(String id, String pw) {
-		// usr.getId()
-		// usr.getPw()
+
 		System.out.println("repository_loginUser_execute");
-		String sql = "select u_uid, u_id, u_password, u_name, u_email, u_birth, u_phone, u_address from users where u_id=? AND u_password=?";
-		return jdbcTemplate.queryForObject(sql, new UsrMapper(), id, pw);
+		String sql = "select * from users where u_id=? AND u_password=?";
+		User user = new User();
+		try {
+		user = jdbcTemplate.queryForObject(sql, new UsrMapper(), id, pw);
+		System.out.println(user.getId());
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("로그인에 실패하셨습니다.");
+		}
+		return user;
 	}
 }
