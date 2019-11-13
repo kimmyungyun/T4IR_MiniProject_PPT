@@ -52,7 +52,9 @@
                 return;
             } else {
                 alert('저장되었습니다.')
+                                document.location.href = '/main'
                 window.parent.closeModal();
+                document.location.href = '/main'
                 return;
             }
             return;
@@ -66,13 +68,12 @@
         <div class="logbody">
             <div class="row" style="width: 100%;">
                 <div class="panel panel-default">
-                    <div class="panel-body">
+                    <div class="panel-body" style="width: 490px;">
                         아이디를 입력해주세요<br>
                         &nbsp;<input type="text" class="form-control" placeholder="아이디 입력" id="Cid"><br>
                         비밀번호를 해주세요<br>
                         <input type="password" class="form-control" placeholder="비밀번호 입력" id="Cpw"><br>
                         <hr>
-
                         <button onclick="c2()" class="btn btn-lg btn-success btn-block" name="input">저장하기</button><br>
                     </div>
                 </div>

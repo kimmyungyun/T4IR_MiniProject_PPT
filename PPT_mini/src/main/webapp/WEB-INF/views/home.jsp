@@ -50,7 +50,7 @@
         return;
       } else {
         alert('저장되었습니다.')
-        document.location.href = 'index.html'
+        document.location.href = '/main'
         return;
       }
       return;
@@ -85,8 +85,14 @@
 
     }
   </script>
-
-
+  <script>
+      $(document).ready(function(){
+    //회원가입 추가
+    	    $('#popsign').click(function(){
+    	        $('#signupFrame').attr('src','signup');
+    	      });
+  });
+  </script>
 <script>
 
   $(document).ready(function(){
@@ -94,11 +100,12 @@
       
       $('#signupFrame').attr('src','signup');
     });
-
-    $('TunaBtn').click(function(){
+<!--
+    $('sellBtn').click(function(){
       alert("Btn 클릭");
-      $(location).attr("href", "home");
+      $(location).attr("href", "sell");
     })
+    -->
   });
 window.closeModal = function(){
     $('#popupsignin').modal('hide');
@@ -143,16 +150,21 @@ window.closeModal = function(){
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#popular">인기상품</a>
         </li>
+        <!-- 링크변경  시작-->
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/Sell.html">팝니다</a>
+          <a class="nav-link js-scroll-trigger" href="sell">팝니다</a>
         </li>
+        <!-- 링크변경  끝-->
+        <!-- 링크변경  시작-->
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#buy">삽니다</a>
+          <a class="nav-link js-scroll-trigger" href="buy">삽니다</a>
         </li>
+		<!-- 링크변경  끝-->
         <li class="nav-item">
           <div class="nav-link js-scroll-trigger">
-            <a href="#popupsignin" id="registerBtn" data-toggle="modal">회원가입</a>
+            <a href="#popupsignin" data-toggle="modal" id="popsign" >회원가입</a>
           </div>
+
         </li>
       </ul>
     </div>
@@ -620,7 +632,7 @@ window.closeModal = function(){
   </div>
   </div>
   <!-- 회원가입 -->
-  <div class="modal" id="popupsignin" tabindex="1" role="dialog" aria-hidden="true">
+<div class="modal" id="popupsignin" tabindex="1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content" style="background:#fed136;">
         <div class="modal-header">
@@ -628,13 +640,11 @@ window.closeModal = function(){
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span></button>
         </div>
-
-        <!-- 회원가입 시작 -->
-          <iframe id='signupFrame' width="100%" height="100%"></iframe>
-        <!-- 회원가입 끝-->
+        <div class="modal-body" style="height: 600px;">
+          <iframe id="signupFrame"  style="width: 100%; height: 550px;border: 0px;"></iframe>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
 
