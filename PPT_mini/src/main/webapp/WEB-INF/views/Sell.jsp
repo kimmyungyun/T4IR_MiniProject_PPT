@@ -81,6 +81,7 @@
     $('TunaBtn').click(function(){
       $(location).attr("href", "home");
     })
+
   });
   </script>
 </head>

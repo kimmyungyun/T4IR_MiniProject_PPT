@@ -60,4 +60,10 @@ public class AuctionManageService implements IAuctionManageService{
 		
 	}
 
+	@Override
+	public List<Auction> searchAuctionbyauctionId(int ID) {
+		// TODO Auto-generated method stub
+		return iAuctionmanagerepository.searchAuctionbyauctionId(ID);
+	}
+
 }

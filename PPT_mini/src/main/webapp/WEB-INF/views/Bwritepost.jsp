@@ -38,6 +38,11 @@
       alert('저장되었습니다.')
       // console.log(window.parent);
       // var x = window.parent.getElementById("close_modal");
+      var pom = document.writeForm;
+      pom.method = 'post';
+			pom.action='Bwritepost';
+				console.log("!!!!!"+pom);
+			pom.submit();
       $('#close_modal', parent.document).click();
 
       return;
@@ -46,37 +51,38 @@
 </head>
 
 <body>
-  <div class="modal-head">
-    사는게시글작성
-  </div>
-  <div class="modal-body">
-    <div class="form-group">
-      <input class="form-control" id="title" type="text" placeholder="제목" required="required"
-        data-validation-required-message="Please enter your Title.">
-      <p class="help-block text-danger"></p>
+  <form name="writeForm" method="post">
+    <div class="modal-head">
+      사는게시글작성
     </div>
-    <div class="form-group">
-      <input class="form-control" id="ID" type="text" placeholder="작성자" required="required"
-        data-validation-required-message="Please enter your ID." readonly value="${writerName}">
-      <p class="help-block text-danger"></p>
+    <div class="modal-body">
+      <div class="form-group">
+        <input class="form-control" id="title" type="text" placeholder="제목" required="required"
+          data-validation-required-message="Please enter your Title.">
+        <p class="help-block text-danger"></p>
+      </div>
+      <div class="form-group">
+        <input class="form-control" id="ID" type="text" placeholder="작성자" required="required"
+          data-validation-required-message="Please enter your ID." readonly value="${writerName}">
+        <p class="help-block text-danger"></p>
+      </div>
+      <div class="form-group">
+        <input class="form-control" id="price" type="text" placeholder="가격" required="required"
+          data-validation-required-message="Please enter your Price.">
+        <p class="help-block text-danger"></p>
+      </div>
+      <div class="form-group">
+        <input class="form-control" id="title" type="file" placeholder="이미지등록" required="required"
+          data-validation-required-message="Please enter your title.">
+        <p class="help-block text-danger"></p>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" id="maintext" placeholder="게시글의 설명을 작성해주세요" required="required"
+          style="height: 300px;"></textarea>
+      </div>
+      <button onclick="wp()" class="btn btn-lg btn-success btn-block" name="input">저장하기</button>
     </div>
-    <div class="form-group">
-      <input class="form-control" id="price" type="text" placeholder="가격" required="required"
-        data-validation-required-message="Please enter your Price.">
-      <p class="help-block text-danger"></p>
-    </div>
-    <div class="form-group">
-      <input class="form-control" id="title" type="file" placeholder="이미지등록" required="required"
-        data-validation-required-message="Please enter your title.">
-      <p class="help-block text-danger"></p>
-    </div>
-    <div class="form-group">
-      <textarea class="form-control" id="maintext" placeholder="게시글의 설명을 작성해주세요" required="required"
-        style="height: 300px;"></textarea>
-    </div>
-    <button onclick="wp()" class="btn btn-lg btn-success btn-block" name="input">저장하기</button>
-  </div>
-
+  </form>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

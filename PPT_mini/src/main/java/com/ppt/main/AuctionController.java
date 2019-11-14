@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ppt.model.Auction;
 import com.ppt.model.User;
@@ -90,5 +91,39 @@ public class AuctionController {
 		//List<Auction> auctions = null;//AuctionManageService.sortNewAuction('B');
 		//model.addAttribute("Auctions", auctions);
 		return "Bwritepost";
+	}
+	
+	
+	@RequestMapping(value = "/sell/${auction.auctionId}", method = RequestMethod.GET)
+	public String registerSellItem(@RequestParam("auction") Auction acution, Locale locale, Model model, HttpServletRequest request) {
+		System.out.println("/Sreadpost");
+		if(request.getSession().getAttribute("user") != null) {
+			User user = (User) request.getSession().getAttribute("user");
+			System.out.println(user.getName());
+			
+			model.addAttribute("writerName", user.getName());
+		}
+		
+		
+		//List<Auction> auctions = null; //AuctionManageService.sortNewAuction('S');
+		//model.addAttribute("Auctions", auctions);
+		return "Sreadpost";
+	}
+	
+	
+	@RequestMapping(value = "/buy/${auction.auctionId}", method = RequestMethod.GET)
+	public String registerBuyItem(@RequestParam("auction") Auction acution, Locale locale, Model model, HttpServletRequest request) {
+		System.out.println("/Breadpost");
+		if(request.getSession().getAttribute("user") != null) {
+			User user = (User) request.getSession().getAttribute("user");
+			System.out.println(user.getName());
+			
+			model.addAttribute("writerName", user.getName());
+		}
+		
+		
+		//List<Auction> auctions = null; //AuctionManageService.sortNewAuction('S');
+		//model.addAttribute("Auctions", auctions);
+		return "Breadpost";
 	}
 }

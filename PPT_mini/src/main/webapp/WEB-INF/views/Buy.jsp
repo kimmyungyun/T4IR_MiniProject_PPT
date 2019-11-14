@@ -85,6 +85,8 @@
     $('TunaBtn').click(function(){
       $(location).attr("href", "home");
     })
+    
+    
   });
   </script>
 </head>
@@ -180,7 +182,7 @@
               <tbody>
                 <c:forEach var="auction" items="${Auctions}" varStatus="status">
                     <p>
-                      <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
+                      <tr id="${auction.auctionId}" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
                       style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="/sell/${auction.auctionId}">
                       <th>${status.count}</th>
                       <th>${auction.itemName}</th>

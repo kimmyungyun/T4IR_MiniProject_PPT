@@ -132,6 +132,21 @@ public class AuctionManageRepository implements IAuctionManageRepository {
 	}
 
 	@Override
+	public List<Auction> searchAuctionbyauctionId(int ID) {
+		// TODO Auto-generated method stub
+		List<Auction> resultAuctions = new ArrayList<Auction>();
+		String auctionSql = "SELECT * FROM AUCTION WHERE A_ID=" + ID;
+		try {
+			resultAuctions = jdbcTemplate.query(auctionSql, new AuctionMapper());
+
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+		return resultAuctions;
+	}
+	
+	@Override
 	public List<Auction> sortNewAuction(char type) {
 		List<Auction> resultAuction = new ArrayList<Auction>();
 		// 내림차순 정렬을 활용한 출력

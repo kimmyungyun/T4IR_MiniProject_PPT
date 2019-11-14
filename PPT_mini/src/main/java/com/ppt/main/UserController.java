@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -104,14 +105,18 @@ public class UserController {
 			if (u1.getName() != null) {
 				System.out.println(HomeController.commonUser.getName() + "님이 로그인하셧씁니다.");
 				request.getSession().setAttribute("user", u1);
+				request.getSession().setAttribute("loginFlag", true);
 				request.getSession().setMaxInactiveInterval(60*30);
 				
 				mav.addObject("msg", "로그인에 성공하였습니다.");
 			} else {
 				System.out.println("로그인에 실패하셨습니다.");
 			}
-		} catch (Exception e) {
+		} catch (EmptyResultDataAccessException e) {
 			System.out.println(e);
+			mav.setViewName("/login");
+			request.getSession().setAttribute("loginFlag", false);
+			System.out.println("로그인에 실패하셨습니다.");
 		}
 		
 

@@ -9,6 +9,7 @@ public interface IAuctionManageService {
 	boolean deleteAuction(int auctionNum);
 	List<Auction> searchAuctionbyitemName(String name);
 	List<Auction> searchAuctionbyitemCategory(String category);
+	List<Auction> searchAuctionbyauctionId(int ID);
 	List<Auction> sortNewAuction(char type);
 	void announcementHotdeal();
 	void announcementEndtime();
