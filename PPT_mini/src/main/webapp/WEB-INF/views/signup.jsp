@@ -95,6 +95,7 @@
 				pom.action='signup';
 				console.log("!!!!!"+pom);
 				pom.submit();
+				$('#close_modal2', parent.document).click();
 				return;
 			}
 		}

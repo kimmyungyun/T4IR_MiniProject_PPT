@@ -108,13 +108,15 @@ public class UserController {
 				request.getSession().setAttribute("loginFlag", true);
 				request.getSession().setMaxInactiveInterval(60*30);
 				
+				mav.setViewName("/loginsuccess");
 				mav.addObject("msg", "로그인에 성공하였습니다.");
 			} else {
 				System.out.println("로그인에 실패하셨습니다.");
+				mav.setViewName("/loginfailed");
 			}
 		} catch (EmptyResultDataAccessException e) {
 			System.out.println(e);
-			mav.setViewName("/login");
+			mav.setViewName("/loginfailed");
 			request.getSession().setAttribute("loginFlag", false);
 			System.out.println("로그인에 실패하셨습니다.");
 		}

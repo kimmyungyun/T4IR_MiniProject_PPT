@@ -66,11 +66,16 @@ public class AuctionController {
 	@RequestMapping(value = "/Swritepost", method = RequestMethod.GET)
 	public String registerSell(Locale locale, Model model, HttpServletRequest request) {
 		System.out.println("/Swritepost");
+		System.out.println(request.getSession());
 		if(request.getSession().getAttribute("user") != null) {
 			User user = (User) request.getSession().getAttribute("user");
 			System.out.println(user.getName());
-			
+			System.out.println("·Î±×ÀÎ µÊ");
 			model.addAttribute("writerName", user.getName());
+			model.addAttribute("writeFlag", false);
+		}else {
+			model.addAttribute("writeFlag", true);
+			System.out.println("·Î±×ÀÎ ¾ÈµÊ");
 		}
 		
 		
@@ -85,11 +90,16 @@ public class AuctionController {
 		if(request.getSession().getAttribute("user") != null) {
 			User user = (User) request.getSession().getAttribute("user");
 			System.out.println(user.getName());
-			
+			System.out.println("·Î±×ÀÎ µÊ");
 			model.addAttribute("writerName", user.getName());
+			model.addAttribute("writeFlag", false);
+		}else {
+			model.addAttribute("writeFlag", true);
+			System.out.println("·Î±×ÀÎ ¾ÈµÊ");
 		}
 		//List<Auction> auctions = null;//AuctionManageService.sortNewAuction('B');
 		//model.addAttribute("Auctions", auctions);
+
 		return "Bwritepost";
 	}
 	

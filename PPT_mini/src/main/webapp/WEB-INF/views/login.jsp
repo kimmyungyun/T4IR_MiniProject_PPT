@@ -16,7 +16,7 @@
     <meta name="author" content="">
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-      <!-- Bootstrap core JavaScript -->
+    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -53,12 +53,14 @@
     <script>
         $(document).ready(function () {
             $('#loginBtn').click(function () {
-                c2();
-                var pom = document.loginForm;
-                console.log("!!!!"+pom);
-                pom.method = 'post';
-                pom.action='login';
-                pom.submit();
+                if (c2()) {
+                    var pom = document.loginForm;
+                    console.log("!!!!" + pom);
+                    pom.method = 'post';
+                    pom.action = 'login';
+                    pom.submit();
+
+                }
             });
 
         });
@@ -66,23 +68,23 @@
         function c2() {
 
             var UID = document.getElementById("Cid");
-            
+
             var strUID = UID.value;
             var Pw = document.getElementById("Cpw");
             var strPw = Pw.value;
 
             if (strUID.length < 2) {
                 alert(strUID.length + '글자입니다. 아이디를 2자 이상 입력해 주세여');
-                return;
+                return false;
             } else if (strPw.length < 8) {
                 alert(strPw.length + '자입니다. 비밀번호는 8자 이상입니다.')
-                return;
-                document.location.href = '/main'
-                window.parent.closeModal();
-                alert('로그인되었습니다.');
-                return;
+                return false;
+            } else {
+
+                
+                return true;
             }
-            return;
+            return false;
         }
     </script>
 
@@ -96,13 +98,14 @@
                 <div class="panel panel-default">
                     <div class="panel-body" style="width: 490px;">
                         <form name="loginForm" method="post">
-                        아이디를 입력해주세요<br>
-                        &nbsp;<input type="text" class="form-control" placeholder="아이디 입력" id="Cid" name="Cid"><br>
-                        비밀번호를 해주세요<br>
-                        <input type="password" class="form-control" placeholder="비밀번호 입력" id="Cpw" name="Cpw"><br>
-                        <hr>
-                        <button type="button" id="loginBtn" class="btn btn-lg btn-success btn-block">로그인하기</button><br>
-                    </form>
+                            아이디를 입력해주세요<br>
+                            &nbsp;<input type="text" class="form-control" placeholder="아이디 입력" id="Cid" name="Cid"><br>
+                            비밀번호를 해주세요<br>
+                            <input type="password" class="form-control" placeholder="비밀번호 입력" id="Cpw" name="Cpw"><br>
+                            <hr>
+                            <button type="button" id="loginBtn"
+                                class="btn btn-lg btn-success btn-block">로그인하기</button><br>
+                        </form>
                     </div>
                 </div>
             </div>

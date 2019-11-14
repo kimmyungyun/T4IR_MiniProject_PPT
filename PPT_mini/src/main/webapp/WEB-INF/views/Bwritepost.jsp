@@ -17,6 +17,20 @@
 
   <title>Agency - Start Bootstrap Theme</title>
 
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -34,6 +48,14 @@
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
   <script>
+    $(document).ready(function(){
+      console.log(${writeflag}, 'Here');
+      if(${writeflag}){
+        alert("로그인이 되어 있지 않아 등록할 수 없습니다.");
+        $('#close_modal', parent.document).click();
+      }
+     
+    });
     function wp() {
       alert('저장되었습니다.')
       // console.log(window.parent);
@@ -84,19 +106,6 @@
     </div>
   </form>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Contact form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/agency.min.js"></script>
 
 </body>
 

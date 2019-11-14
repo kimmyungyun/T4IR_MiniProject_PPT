@@ -50,7 +50,7 @@
         <link href="css/agency.min.css" rel="stylesheet">
     <script>
         $(document).ready(function(){
-            
+    
             $('#close_modal', parent.document).click();
         });
     </script>
@@ -58,7 +58,7 @@
 </head>
 
 <body>
-        <h2>로그인 성공</h2>
+    <h2>로그인 실패</h2>
 </body>
 
 </html>

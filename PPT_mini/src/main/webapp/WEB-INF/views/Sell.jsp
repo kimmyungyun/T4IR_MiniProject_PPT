@@ -52,23 +52,21 @@
         trObj.style.backgroundColor = oldColor;
       }
     }
-  </script>
-  <script>
+    function gogo(id){
+      var pom = 	document.sentMessage;			
+      pom.method = 'post';
+			pom.action='sell/'+id;
+			console.log("!!!!!"+pom);
+			pom.submit();
+    }
+
     window.closeModal = function () {
       $('#W1').modal('hide');
       $('#Pd1').modal('hide');
       $('#popuplogin').modal('hide');
       $('#popupsignin').modal('hide');
     };
-  </script>
-    <script>
-      $(document).ready(function(){
-    $('#writeBtn').click(function(){
-      $('#writeIfr').attr('src','Swritepost');
-    });
-  });
-  </script>
-  <script>
+
   $(document).ready(function(){
     //회원가입 추가
     $('#popsign').click(function(){
@@ -81,7 +79,9 @@
     $('TunaBtn').click(function(){
       $(location).attr("href", "home");
     })
-
+    $('#writeBtn').click(function(){
+      $('#writeIfr').attr('src','Swritepost');
+    });
   });
   </script>
 </head>
@@ -91,7 +91,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="padding: 10px; margin: 0px;">
 	<!-- 링크변경  시작-->
-    <a class="navbar-brand js-scroll-trigger" href="">Tuna Auction</a>
+    <a class="navbar-brand js-scroll-trigger" href="/main">Tuna Auction</a>
     <!-- 링크변경  끝-->
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="popup">
@@ -179,7 +179,7 @@
               <tbody>
                   <c:forEach var="auction" items="${Auctions}" varStatus="status">
                       <p>
-                        <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
+                        <tr id="firstRow" onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')" onClick='javascript:gogo(this.id);'
                         style="cursor: pointer;" class="portfolio-link" data-toggle="modal" href="/sell/${auction.auctionId}">
                         <th>${status.count}</th>
                         <th>${auction.itemName}</th>

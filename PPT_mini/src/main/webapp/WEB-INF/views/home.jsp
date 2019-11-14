@@ -600,7 +600,7 @@
         <div class="modal-content" style="background:#fed136;">
           <div class="modal-header">
             <h3 class="modal-title" style="text-align:center; font-family: Kaushan Script;">LogIn</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            <button id="close_modal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body" style="width: 100%;">
@@ -615,7 +615,7 @@
       <div class="modal-content" style="background:#fed136;">
         <div class="modal-header">
           <h3 class="modal-title" style="text-align:center; font-family: Kaushan Script;">SignIn</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          <button id="close_modal2" type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body" style="height: 600px;">
