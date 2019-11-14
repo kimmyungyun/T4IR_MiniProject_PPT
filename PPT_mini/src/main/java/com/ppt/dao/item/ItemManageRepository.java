@@ -3,6 +3,7 @@ package com.ppt.dao.item;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ import com.ppt.model.Items;
 
 @Repository
 public class ItemManageRepository implements IItemManageRepository {
+	@Autowired
 	JdbcTemplate jdbcTemplate;
 	public class ItemMapper implements RowMapper<Items> {
 		@Override
@@ -27,16 +29,19 @@ public class ItemManageRepository implements IItemManageRepository {
 		}
 	}
 	@Override
-	public boolean registerItem(Items item, int u_uid) {
+	public boolean registerItem(Items item) {
 		// TODO Auto-generated method stub
+
+		try {
 		String sql = "INSERT INTO ITEMS " + "(I_CATEGORY, I_NAME, U_UID) "
 				+ "VALUES (?, ?, ?)";
-		try {
-			jdbcTemplate.update(sql, item.getCategory(), item.getName(), u_uid);
-		}catch(Exception e) {
+		jdbcTemplate.update(sql, item.getCategory(), item.getName(), item.getUid());
+		}catch (Exception e) {
+			// TODO: handle exception
 			System.out.println("We can't insert items");
 			return false;
 		}
+
 		return true;
 		
 	}

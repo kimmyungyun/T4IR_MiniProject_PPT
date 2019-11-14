@@ -13,3 +13,18 @@ PPT_mini/src/main/resources/application-config.xml
 PPT_mini/src/main/resources/application-config.xml
 
 *.class
+PPT_mini/src/main/resources/database/jdbc.properties
+PPT_mini/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml
+PPT_mini/target/classes/com/ppt/dao/auction/AuctionManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/item/IItemManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/item/ItemManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/user/UserManageRepository.class
+PPT_mini/target/classes/com/ppt/model/Auction.class
+PPT_mini/target/classes/com/ppt/service/auction/AuctionManageService.class
+PPT_mini/target/classes/com/ppt/service/auction/IAuctionManageService.class
+PPT_mini/target/classes/com/ppt/service/item/ItemManageService.class
+PPT_mini/target/classes/com/ppt/service/user/UserManageService.class
+PPT_mini/target/classes/com/ppt/dao/item/ItemManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/item/ItemManageRepository.class
+PPT_mini/target/classes/com/ppt/dao/item/ItemManageRepository.class
+PPT_mini/.settings/org.eclipse.core.resources.prefs

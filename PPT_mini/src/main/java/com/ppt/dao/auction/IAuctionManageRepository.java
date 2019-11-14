@@ -11,7 +11,8 @@ public interface IAuctionManageRepository {
 	boolean deleteAuction(int auctionNum);
 	List<Auction> searchAuctionbyitemName(String name);
 	List<Auction> searchAuctionbyitemCategory(String category);
-	void sortNewAuction();
+	List<Auction> searchAuctionbyauctionId(int ID);
+	List<Auction> sortNewAuction(char type);
 	void announcementHotdeal();
 	void announcementEndtime();
 	void endAuction();
